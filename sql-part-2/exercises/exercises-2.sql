@@ -24,5 +24,5 @@
 --     SELECT MAX(start_lat) FROM RideShareDB.dbo.lyft
 -- )
 
-SELECT CONCAT(Base_Number, ": ", Base_Name)
+SELECT CONCAT(Base_Number, ': ', Base_Name)
 FROM RideShareDB.dbo.other_FHV_services_jan_aug_2015
