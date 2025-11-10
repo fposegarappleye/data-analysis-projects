@@ -5,19 +5,36 @@ proto_list4 = "Comma-spaces, might, require, typing, caution"
 
 strings = [proto_list1, proto_list2, proto_list3, proto_list4]
 
-# a) Use the 'in' method to check to see if the words in each string are separated by commas (,), semicolons (;) or just spaces.
+def convertProtoList(input_list):
 
+    output = None
 
-# b) If the string uses commas to separate the words, split it into an array, reverse the entries, and then join the array into a new comma separated string.
+    # a) Use the 'in' method to check to see if the words in each string are separated by commas (,), semicolons (;) or just spaces.
+    if "," in input_list:
+        # b) If the string uses commas to separate the words, 
+        # split it into an array, reverse the entries, and then join the array into a new comma separated string.
+        output_list = input_list.split(",")[::-1]
+        # e) If the string uses ‘comma spaces’ to separate the list, 
+        # modify your code to produce the same result as part “b”, making sure that the extra spaces are NOT part of the final string.
+        if " " in input_list:
+            output_list = [word.strip() for word in output_list]
+        output = ",".join(output_list)
 
+    elif ";" in input_list:
+        # c) If the string uses semicolons to separate the words, split it into an array, 
+        # alphabetize the entries, and then join the array into a new comma separated string.
+        output_list  = input_list.split(";")
+        output_list.sort()
+        output = ";".join(output_list)
 
+    elif " " in input_list:
+        # d) If the string uses spaces to separate the words, split it into an array, 
+        # reverse alphabetize the entries, and then join the array into a new space separated string.
+        output_list = input_list.split(" ")
+        output_list.sort(reverse=True)
+        output = " ".join(output_list)
 
-# c) If the string uses semicolons to separate the words, split it into an array, alphabetize the entries, and then join the array into a new comma separated string.
+    return output
 
-
-
-# d) If the string uses spaces to separate the words, split it into an array, reverse alphabetize the entries, and then join the array into a new space separated string.
-
-
-
-# e) If the string uses ‘comma spaces’ to separate the list, modify your code to produce the same result as part “b”, making sure that the extra spaces are NOT part of the final string.
+for each in strings:
+    print(convertProtoList(each))
