@@ -15,13 +15,12 @@ list_test3 = ['hello', 'world', 123, 'orange']
 #   a) Add an if statement to your reverse_characters function to check the typeof the parameter.
 #   b - d) If type is ‘string’, return the reversed string as before. If type is ‘number’, convert the parameter to a string, reverse the characters, then convert it back into a number. Return the reversed number.
 #   e) Be sure to print the result returned by the function to verify that your code works for both strings and numbers. Do this before moving on to the next steps.
-
-
 def reverse_characters(item):
     item = str(item)
     if item.isdigit():
         return int("".join(list(str(item))[::-1]))
     return "".join(list(item)[::-1])
+
 
 # 3) Create a new function with one parameter, which is the list we want to change. The function should:
 #   a) Define and initialize an empty list.
