@@ -189,7 +189,7 @@ SELECT
     ) AS "Reader Reviews"
 FROM BooksDB.dbo.books AS b
 WHERE average_rating < (
-    SELECT AVG(rating*1.0) AS 'avg'
+    SELECT AVG(rating*1.0)
     FROM BooksDB.dbo.ratings AS r
     WHERE b.book_id = r.book_id
     GROUP BY book_id
