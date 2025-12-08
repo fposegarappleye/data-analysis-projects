@@ -99,7 +99,7 @@ SELECT
             FROM Sep2025JunkDB.francis_rappleye.book AS b
             JOIN Sep2025JunkDB.francis_rappleye.loan AS l
                 ON b.book_id = l.book_id
-            WHERE patron_id = 
+            -- Not quite completed, need to relegate to each column
         )
     )
 FROM Sep2025JunkDB.francis_rappleye.patron AS p
