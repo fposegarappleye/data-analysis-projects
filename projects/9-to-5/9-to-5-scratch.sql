@@ -538,16 +538,20 @@ SELECT * FROM LaborStatisticsDB.dbo.datatype
 
 ------------------------------------
 
-SELECT * 
+SELECT TOP 5
+    value AS 'Weekly earnings'
+    ,industry_name AS 'Industry'
+    ,supersector_name AS 'Supersector'
 FROM LaborStatisticsDB.dbo.annual_2016 AS a
 LEFT JOIN LaborStatisticsDB.dbo.series AS s
     ON a.series_id = s.series_id
 LEFT JOIN LaborStatisticsDB.dbo.industry AS i
     ON s.industry_code = i.industry_code
+LEFT JOIN LaborStatisticsDB.dbo.supersector AS ss
+    ON s.supersector_code = ss.supersector_code
 WHERE s.series_title = 'Average weekly earnings of production and nonsupervisory employees'
-ORDER BY value
+AND
+    a.original_file LIKE '%AllCESSeries.csv%'
+ORDER BY value DESC
 
-UNION 
-
-SELECT LaborStatisticsDB.dbo.january_2017
-WHERE 
+SELECT * FROM LaborStatisticsDB.dbo.annual_2016
